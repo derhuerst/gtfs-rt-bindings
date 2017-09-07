@@ -1,0 +1,36 @@
+{
+	"name": "gtfs-rt-bindings",
+	"description": "Parse and serialize GTFS Realtime.",
+	"version": "0.1.0",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"gtfs realtime",
+		"gtfs rt",
+		"transit",
+		"public transport",
+		"realtime",
+		"parse",
+		"serialize"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/gtfs-rt-bindings",
+	"repository": "derhuerst/gtfs-rt-bindings",
+	"bugs": "https://github.com/derhuerst/gtfs-rt-bindings/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"tap-min": "^1.2.1",
+		"tape": "^4.6.3"
+	},
+	"scripts": {
+		"test": "node test.js | tap-min",
+		"prepublishOnly": "npm test"
+	}
+}
