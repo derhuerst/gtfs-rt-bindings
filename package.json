@@ -24,13 +24,17 @@
 		"node": ">=6"
 	},
 	"dependencies": {
+		"pbf": "^3.0.5"
 	},
 	"devDependencies": {
 		"tap-min": "^1.2.1",
 		"tape": "^4.6.3"
 	},
 	"scripts": {
+		"download": "curl -s 'https://developers.google.com/transit/gtfs-realtime/gtfs-realtime.proto' >gtfs-realtime.proto",
+		"compile": "pbf gtfs-realtime.proto >index.js",
+		"build": "npm run download && npm run compile",
 		"test": "node test.js | tap-min",
-		"prepublishOnly": "npm test"
+		"prepublishOnly": "npm run build && npm test"
 	}
 }
