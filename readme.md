@@ -1,5 +1,7 @@
 # gtfs-rt-bindings
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/derhuerst/gtfs-rt-bindings.svg)](https://greenkeeper.io/)
+
 **Parse and serialize [GTFS Realtime](https://developers.google.com/transit/gtfs-realtime/index).** Updated more frequently than [`gtfs-realtime-bindings`](https://github.com/google/gtfs-realtime-bindings).
 
 [![npm version](https://img.shields.io/npm/v/gtfs-rt-bindings.svg)](https://www.npmjs.com/package/gtfs-rt-bindings)
