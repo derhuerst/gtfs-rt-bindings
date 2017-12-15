@@ -23,15 +23,16 @@
 	"engines": {
 		"node": ">=6"
 	},
-	"dependencies": {
+	"peerDependencies": {
 		"pbf": "^3.0.5"
 	},
 	"devDependencies": {
+		"pbf": "^3.0.5",
 		"tap-min": "^1.2.1",
 		"tape": "^4.6.3"
 	},
 	"scripts": {
-		"download": "curl -s 'https://developers.google.com/transit/gtfs-realtime/gtfs-realtime.proto' >gtfs-realtime.proto",
+		"download": "curl -L -s 'https://github.com/google/transit/raw/master/gtfs-realtime/proto/gtfs-realtime.proto' >gtfs-realtime.proto",
 		"compile": "pbf gtfs-realtime.proto >index.js",
 		"build": "npm run download && npm run compile",
 		"test": "node test.js | tap-min",
