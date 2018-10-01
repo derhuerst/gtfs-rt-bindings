@@ -1,4 +1,4 @@
-# gtfs-rt-bindings
+#gtfs-rt-bindings
 
 **Parse and serialize [GTFS Realtime](https://developers.google.com/transit/gtfs-realtime/index).** Updated more frequently than [`gtfs-realtime-bindings`](https://github.com/google/gtfs-realtime-bindings).
 
