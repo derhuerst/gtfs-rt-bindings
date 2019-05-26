@@ -6,7 +6,9 @@ const {FeedMessage} = require('.')
 
 const data = {
 	header: {
-		gtfs_realtime_version: '1.0'
+		gtfs_realtime_version: '2.0',
+		incrementality: 0,
+		timestamp: 1528624800
 	},
 	entity: [{
 		id: 'trip-update-1',
