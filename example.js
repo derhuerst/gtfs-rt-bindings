@@ -1,7 +1,5 @@
 'use strict'
 
-const Pbf = require('pbf')
-
 const {FeedMessage} = require('.')
 
 const data = {
@@ -25,13 +23,8 @@ const data = {
 	}]
 }
 
-// serialize
-const pbf1 = new Pbf()
-FeedMessage.write(data, pbf1)
-const buf = pbf1.finish()
+const buf = FeedMessage.encode(data)
+console.log(buf)
 
-// parse
-const pbf2 = new Pbf(buf)
-const parsedData = FeedMessage.read(pbf2)
-
+const parsedData = FeedMessage.decode(buf)
 console.log(parsedData)

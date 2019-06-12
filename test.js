@@ -1,7 +1,6 @@
 'use strict'
 
 const test = require('tape')
-const Pbf = require('pbf')
 
 const {FeedMessage} = require('.')
 
@@ -27,14 +26,8 @@ const data = {
 }
 
 test('round trip', (t) => {
-	// serialize
-	const pbf1 = new Pbf()
-	FeedMessage.write(data, pbf1)
-	const buf = pbf1.finish()
-
-	// parse
-	const pbf2 = new Pbf(buf)
-	const parsed = FeedMessage.read(pbf2)
+	const buf = FeedMessage.encode(data)
+	const parsed = FeedMessage.decode(buf)
 
 	// todo: find a tool for this
 	t.ok(parsed)

@@ -23,17 +23,17 @@
 	"engines": {
 		"node": ">=8"
 	},
-	"peerDependencies": {
-		"pbf": "^3.0.5"
+	"dependencies": {
+		"protocol-buffers-encodings": "^1.1.0"
 	},
 	"devDependencies": {
-		"pbf": "^3.0.5",
+		"protocol-buffers": "^4.1.0",
 		"tap-min": "^2.0.0",
 		"tape": "^4.6.3"
 	},
 	"scripts": {
 		"download": "curl -L -s 'https://github.com/google/transit/raw/master/gtfs-realtime/proto/gtfs-realtime.proto' >gtfs-realtime.proto",
-		"compile": "pbf gtfs-realtime.proto >index.js",
+		"compile": "protocol-buffers gtfs-realtime.proto -o index.js",
 		"build": "npm run download && npm run compile",
 		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"

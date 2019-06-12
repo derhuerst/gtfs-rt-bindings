@@ -19,7 +19,6 @@ npm install gtfs-rt-bindings
 ## Usage
 
 ```js
-const Pbf = require('pbf')
 const {TripUpdate} = require('gtfs-rt-bindings')
 
 const data = {
@@ -33,13 +32,12 @@ const data = {
 	}]
 }
 
-// serialize
-const pbf = new Pbf()
-TripUpdate.write(data, pbf)
-const buf = pbf.finish()
 
-// parse
-const parsedData = TripUpdate.read(new Pbf(buf))
+const buf = TripUpdate.encode(data)
+console.log(buf)
+
+const parsedData = TripUpdate.decode(buf)
+console.log(parsedData)
 ```
 
 
