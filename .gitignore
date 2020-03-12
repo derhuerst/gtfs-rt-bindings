@@ -10,3 +10,4 @@ shrinkwrap.yaml
 
 gtfs-realtime.proto
 index.js
+schema.json

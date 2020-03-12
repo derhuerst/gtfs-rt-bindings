@@ -3,6 +3,7 @@
 const test = require('tape')
 
 const {FeedMessage} = require('.')
+const schema = require('./schema.json')
 
 const data = {
 	header: {
@@ -54,5 +55,14 @@ test('round trip', (t) => {
 	t.ok(u1.arrival)
 	t.equal(u1.arrival.delay, u2.arrival.delay)
 
+	t.end()
+})
+
+test('JSON schema looks ok', (t) => {
+	t.ok(schema)
+	t.ok(schema.nested)
+	t.ok(schema.nested.transit_realtime)
+	t.ok(schema.nested.transit_realtime.nested)
+	t.ok(schema.nested.transit_realtime.nested.FeedMessage)
 	t.end()
 })

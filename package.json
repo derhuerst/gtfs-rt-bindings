@@ -1,10 +1,12 @@
 {
 	"name": "gtfs-rt-bindings",
 	"description": "Parse and serialize GTFS Realtime.",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"main": "index.js",
 	"files": [
 		"index.js",
+		"schema.json",
+		"gtfs-realtime.proto",
 		"example.js"
 	],
 	"keywords": [
@@ -28,6 +30,7 @@
 		"protocol-buffers-encodings": "^1.1.0"
 	},
 	"devDependencies": {
+		"protobufjs": "^6.8.9",
 		"protocol-buffers": "^4.1.0",
 		"tap-min": "^2.0.0",
 		"tape": "^4.6.3"
@@ -35,7 +38,8 @@
 	"scripts": {
 		"download": "curl -L -s 'https://github.com/google/transit/raw/master/gtfs-realtime/proto/gtfs-realtime.proto' >gtfs-realtime.proto",
 		"compile": "protocol-buffers gtfs-realtime.proto -o index.js",
-		"build": "npm run download && npm run compile",
+		"schema": "pbjs gtfs-realtime.proto -t json >schema.json",
+		"build": "npm run download && npm run compile && npm run schema",
 		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
 	}
