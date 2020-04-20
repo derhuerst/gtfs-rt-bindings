@@ -30,7 +30,7 @@
 		"protocol-buffers-encodings": "^1.1.0"
 	},
 	"devDependencies": {
-		"protobufjs": "^6.8.9",
+		"protobufjs": "^6.9.0",
 		"protocol-buffers": "^4.1.0",
 		"tap-min": "^2.0.0",
 		"tape": "^4.6.3"
