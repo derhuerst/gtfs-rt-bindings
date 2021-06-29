@@ -3,7 +3,7 @@
 const test = require('tape')
 
 const {FeedMessage} = require('.')
-const schema = require('./schema.json')
+const schema = require('./gtfs-realtime.schema.json')
 
 const data = {
 	header: {
@@ -27,8 +27,9 @@ const data = {
 }
 
 test('round trip', (t) => {
-	const buf = FeedMessage.encode(data)
-	const parsed = FeedMessage.decode(buf)
+	FeedMessage.verify(data)
+	const buf = FeedMessage.encode(data).finish()
+	const parsed = FeedMessage.fromObject(FeedMessage.decode(buf))
 
 	// todo: find a tool for this
 	t.ok(parsed)

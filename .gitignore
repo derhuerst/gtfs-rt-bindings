@@ -8,6 +8,6 @@ npm-debug.log
 package-lock.json
 shrinkwrap.yaml
 
-gtfs-realtime.proto
-index.js
-schema.json
+/gtfs-realtime.proto
+/gtfs-realtime.schema.json
+/gtfs-realtime.pbf.js

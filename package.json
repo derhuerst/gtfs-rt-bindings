@@ -1,12 +1,13 @@
 {
 	"name": "gtfs-rt-bindings",
 	"description": "Parse and serialize GTFS Realtime.",
-	"version": "3.2.0",
+	"version": "4.0.0",
 	"main": "index.js",
 	"files": [
 		"index.js",
-		"schema.json",
 		"gtfs-realtime.proto",
+		"gtfs-realtime.schema.json",
+		"gtfs-realtime.pbf.js",
 		"example.js"
 	],
 	"keywords": [
@@ -24,21 +25,19 @@
 	"bugs": "https://github.com/derhuerst/gtfs-rt-bindings/issues",
 	"license": "ISC",
 	"engines": {
-		"node": ">=8"
+		"node": ">=14"
 	},
 	"dependencies": {
-		"protocol-buffers-encodings": "^1.1.0"
+		"protobufjs": "^6.11.2"
 	},
 	"devDependencies": {
-		"protobufjs": "^6.8.9",
-		"protocol-buffers": "^4.1.0",
 		"tap-min": "^2.0.0",
 		"tape": "^5.0.0"
 	},
 	"scripts": {
 		"download": "curl -L -s 'https://github.com/google/transit/raw/master/gtfs-realtime/proto/gtfs-realtime.proto' >gtfs-realtime.proto",
-		"compile": "protocol-buffers gtfs-realtime.proto -o index.js",
-		"schema": "pbjs gtfs-realtime.proto -t json >schema.json",
+		"compile": "pbjs gtfs-realtime.proto -t static-module -w commonjs --keep-case --force-number -o gtfs-realtime.pbf.js",
+		"schema": "pbjs gtfs-realtime.proto -t json -o gtfs-realtime.schema.json",
 		"build": "npm run download && npm run compile && npm run schema",
 		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
