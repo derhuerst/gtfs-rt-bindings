@@ -1,7 +1,7 @@
 {
 	"name": "gtfs-rt-bindings",
 	"description": "Parse and serialize GTFS Realtime.",
-	"version": "3.1.0",
+	"version": "3.2.0",
 	"main": "index.js",
 	"files": [
 		"index.js",
