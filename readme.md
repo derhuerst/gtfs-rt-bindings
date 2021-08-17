@@ -38,7 +38,7 @@ const buf = TripUpdate.encode(data).finish()
 console.log(buf)
 // <Buffer 0a 11 0a 06 74 72 69 70 2d 31 2a 07 72 6f 75 74 65 2d 31 12 06 08 03 12 02 08 1e>
 
-const parsedData = TripUpdate.fromObject(TripUpdate.decode(buf))
+const parsedData = TripUpdate.toObject(TripUpdate.decode(buf))
 console.log(parsedData)
 ```
 

@@ -29,7 +29,7 @@ const data = {
 test('round trip', (t) => {
 	FeedMessage.verify(data)
 	const buf = FeedMessage.encode(data).finish()
-	const parsed = FeedMessage.fromObject(FeedMessage.decode(buf))
+	const parsed = FeedMessage.toObject(FeedMessage.decode(buf))
 
 	// todo: find a tool for this
 	t.ok(parsed)

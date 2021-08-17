@@ -27,5 +27,5 @@ FeedMessage.verify(data)
 const buf = FeedMessage.encode(data).finish()
 console.log(buf)
 
-const parsedData = FeedMessage.fromObject(FeedMessage.decode(buf))
+const parsedData = FeedMessage.toObject(FeedMessage.decode(buf))
 console.log(parsedData)
