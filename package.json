@@ -28,9 +28,10 @@
 		"node": ">=14"
 	},
 	"dependencies": {
-		"protobufjs": "^6.11.2"
+		"protobufjs": "^7.1.0"
 	},
 	"devDependencies": {
+		"protobufjs-cli": "^1.0.1",
 		"tap-min": "^2.0.0",
 		"tape": "^5.0.0"
 	},
