@@ -36,10 +36,10 @@
 		"tape": "^5.0.0"
 	},
 	"scripts": {
-		"download": "curl -fsSL 'https://github.com/google/transit/raw/master/gtfs-realtime/proto/gtfs-realtime.proto' -o gtfs-realtime.proto",
+		"copy": "cp google-transit/gtfs-realtime/proto/gtfs-realtime.proto gtfs-realtime.proto",
 		"compile": "pbjs gtfs-realtime.proto -t static-module -w commonjs --keep-case --force-number -o gtfs-realtime.pbf.js",
 		"schema": "pbjs gtfs-realtime.proto -t json -o gtfs-realtime.schema.json",
-		"build": "npm run download && npm run compile && npm run schema",
+		"build": "npm run copy && npm run compile && npm run schema",
 		"test": "node test.js | tap-min",
 		"prepublishOnly": "npm run build && npm test"
 	}
