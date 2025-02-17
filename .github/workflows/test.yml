@@ -23,6 +23,8 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: setup Node v${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
